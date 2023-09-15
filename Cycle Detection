@@ -1,0 +1,52 @@
+Detecting a cycle in a linked list is a common problem in computer science and data structures.
+It can be solved using a popular algorithm called Floyd's Cycle Detection Algorithm, also known as the "tortoise and hare" algorithm.
+The idea behind this algorithm is to use two pointers, one slow (tortoise) and one fast (hare), that traverse the linked list at different speeds. 
+If there's a cycle in the list, the fast pointer will eventually catch up to the slow pointer, detecting the cycle.
+
+Here's the basic concept:
+
+1. Initialize two pointers, one called `slow` and another called `fast`, both initially pointing to the head of the linked list.
+
+2. Move the `slow` pointer one step at a time, and the `fast` pointer two steps at a time.
+
+3. If there is no cycle in the linked list, the `fast` pointer will eventually reach the end of the list (i.e., `fast` becomes `NULL`), and you can conclude that there is no cycle.
+
+4. If there is a cycle, the `fast` pointer will eventually catch up to the `slow` pointer. When this happens, you have detected a cycle.
+
+Here's a simple representation of this algorithm in C:
+
+```c
+bool hasCycle(struct ListNode* head) {
+    if (head == NULL || head->next == NULL) {
+        return false; // No cycle with less than 2 nodes
+    }
+
+    struct ListNode* slow = head;
+    struct ListNode* fast = head;
+
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;       // Move slow pointer one step
+        fast = fast->next->next; // Move fast pointer two steps
+
+        if (slow == fast) {
+            return true; // Cycle detected
+        }
+    }
+
+    return false; // No cycle detected
+}
+```
+
+In this code:
+
+- We first check if the list is empty or has only one node because a cycle requires at least two nodes.
+
+- We use two pointers, `slow` and `fast`, initially pointing to the head of the list.
+
+- In the `while` loop, we advance the `slow` pointer by one step and the `fast` pointer by two steps.
+
+- If there is a cycle, the pointers will eventually meet (slow == fast), and we return `true`.
+
+- If the `fast` pointer reaches the end of the list (fast == NULL or fast->next == NULL), we conclude that there is no cycle, and we return `false`.
+
+This algorithm has a time complexity of O(n), where n is the number of nodes in the linked list, making it an efficient way to detect cycles in a linked list.
