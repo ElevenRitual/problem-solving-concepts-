@@ -1,0 +1,27 @@
+Rotating an array means shifting its elements by a certain number of positions to the left or right, effectively changing the order of elements. This can be useful in various programming and algorithmic scenarios. 
+Let's explore how to rotate an array and understand the concept.
+**Concept of Rotating an Array:**
+There are two main types of array rotation:
+1. **Left Rotation:** In a left rotation, elements are shifted to the left by a certain number of positions. Elements that "fall off" the left end of the array are moved to the right end.
+2. **Right Rotation:** In a right rotation, elements are shifted to the right by a certain number of positions. Elements that "fall off" the right end of the array are moved to the left end.
+**Rotating an Array Algorithm:**
+Here's a general algorithm for rotating an array:
+**Left Rotation (by `k` positions):**
+1. Create a temporary array to store the first `k` elements of the original array.
+2. Shift the remaining elements in the original array to the left by `k` positions (overwriting the first `k` positions).
+3. Copy the elements from the temporary array back into the original array, starting from the position after the last element of the original array.
+**Right Rotation (by `k` positions):**
+1. Create a temporary array to store the last `k` elements of the original array.
+2. Shift the remaining elements in the original array to the right by `k` positions (overwriting the last `k` positions).
+3. Copy the elements from the temporary array back into the original array, starting from the beginning of the array.
+**Example (Left Rotation):**
+Let's say you have the array `[1, 2, 3, 4, 5]` and you want to perform a left rotation by 2 positions.
+1. Create a temporary array with the first 2 elements: `[1, 2]`.
+2. Shift the remaining elements in the original array to the left by 2 positions: `[3, 4, 5]`.
+3. Copy the elements from the temporary array back into the original array, starting from the position after the last element of the original array. The final rotated array is `[3, 4, 5, 1, 2]`.
+**Example (Right Rotation):**
+Let's say you have the array `[1, 2, 3, 4, 5]` and you want to perform a right rotation by 2 positions.
+1. Create a temporary array with the last 2 elements: `[4, 5]`.
+2. Shift the remaining elements in the original array to the right by 2 positions: `[1, 2, 3]`.
+3. Copy the elements from the temporary array back into the original array, starting from the beginning of the array. The final rotated array is `[4, 5, 1, 2, 3]`.
+Rotating an array is a common operation in various programming tasks, including array manipulation, string manipulation, and algorithm design. It's essential to understand the concept and the algorithm to perform rotations efficiently in your programming projects.
